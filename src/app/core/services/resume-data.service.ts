@@ -15,7 +15,7 @@ export class ResumeDataService {
 
   readonly personalInfo: PersonalInfo = {
     name: 'Vida Taghiyar',
-    jobTitle: 'Marketing Communications & Digital Marketing Manager',
+    jobTitle: 'Digital Marketing Specialist and Product Manager',
     phone: '+46 73 852 98 33',
     email: 'vida.taghiyar@gmail.com',
     location: 'Gothenburg, Sweden',
@@ -25,7 +25,7 @@ export class ResumeDataService {
     linkedin: 'https://www.linkedin.com/in/zahrataghiyar/'
   };
 
-  readonly introText = `<strong>Marketing Communications & Digital Marketing Manager</strong> with 8+ years of experience specializing in <strong>GTM strategy, product launches, and cross-functional collaboration</strong>. Proven track record of driving <strong>B2B growth and revenue</strong> across SaaS, fintech, and digital agency settings — achieving up to <strong>420% average ROI and 6.5x ROAS</strong>. Skilled in crafting clear, <strong>customer-focused messaging</strong>, leading multi-channel campaigns, and optimizing brand visibility via <strong>SEO and generative engine optimization (GEO)</strong>.`;
+  readonly introText = `<strong>Digital Marketing Specialist and Product Manager</strong> with 8+ years of experience specializing in <strong>GTM strategy, product launches, and cross-functional collaboration</strong>. Proven track record of driving <strong>B2B growth and revenue</strong> across SaaS, fintech, and digital agency settings — achieving up to <strong>420% average ROI and 6.5x ROAS</strong>. Skilled in crafting clear, <strong>customer-focused messaging</strong>, leading multi-channel campaigns, and optimizing brand visibility via <strong>SEO and generative engine optimization (GEO)</strong>.`;
 
   readonly skillsList: string[] = [
     'Digital & Technical Marketing', 'SEO & Content Strategy', 'GEO (Generative Engine Optimization)',

@@ -15,7 +15,7 @@ export class PortfolioDataService {
 
   readonly personalInfo: PersonalInfo = {
     name: 'Vida Taghiyar',
-    jobTitle: 'Marketing Communications & Digital Marketing Manager',
+    jobTitle: 'Digital Marketing Specialist and Product Manager',
     phone: '+46 73 852 98 33',
     email: 'vida.taghiyar@gmail.com',
     location: 'Gothenburg, Sweden',
