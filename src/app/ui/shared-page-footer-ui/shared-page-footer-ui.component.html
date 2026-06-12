@@ -1,0 +1,9 @@
+<div data-testid="footer.container"
+     class="border-t pt-3 flex justify-between items-center text-[9px] mt-auto"
+     [ngClass]="{
+       'border-slate-100 text-slate-400': theme === 'light',
+       'border-white/10 text-white/40': theme === 'dark'
+     }">
+  <span data-testid="footer.name">{{ pageConfig.footerName }}</span>
+  <span data-testid="footer.page-number">Page {{ pageConfig.currentPage }} of {{ pageConfig.totalPages }}</span>
+</div>

@@ -1,0 +1,35 @@
+<header data-testid="resume-header" class="mb-0">
+  <div class="flex items-center gap-4">
+    <!-- Portrait -->
+    <div data-testid="resume-header.portrait" class="w-16 h-16 rounded-full overflow-hidden border-2 border-indigo-100 flex-shrink-0">
+      <img [src]="personalInfo.heroImage" [alt]="personalInfo.name + ' portrait'" class="w-full h-full object-cover">
+    </div>
+
+    <!-- Name & Title -->
+    <div class="flex-1">
+      <h1 data-testid="resume-header.name" class="text-2xl font-extrabold text-primary leading-tight">{{ personalInfo.name }}</h1>
+      <p data-testid="resume-header.job-title" class="text-sm text-slate-600 mt-0.5">{{ personalInfo.jobTitle }}</p>
+    </div>
+  </div>
+
+  <!-- Divider -->
+  <div class="border-t border-slate-300 my-2.5"></div>
+
+  <!-- Contact Row 1: Phone | Email | Location -->
+  <p data-testid="resume-header.contact-row-1" class="text-xs text-slate-600 leading-relaxed">
+    <a [href]="'tel:' + personalInfo.phone" class="text-accent hover:underline">{{ personalInfo.phone }}</a>
+    <span class="mx-1.5">|</span>
+    <a [href]="'mailto:' + personalInfo.email" class="text-accent hover:underline">{{ personalInfo.email }}</a>
+    <span class="mx-1.5">|</span>
+    <span>{{ personalInfo.location }}</span>
+  </p>
+
+  <!-- Contact Row 2: LinkedIn | Website | Availability -->
+  <p data-testid="resume-header.contact-row-2" class="text-xs text-slate-600 leading-relaxed mt-0.5">
+    <a [href]="personalInfo.linkedin" target="_blank" rel="noopener" class="text-accent hover:underline">{{ personalInfo.linkedin }}</a>
+    <span class="mx-1.5">|</span>
+    <a [href]="personalInfo.website" target="_blank" rel="noopener" class="text-accent hover:underline">{{ personalInfo.website }}</a>
+    <span class="mx-1.5">|</span>
+    <span>{{ personalInfo.availability }}</span>
+  </p>
+</header>

@@ -1,0 +1,57 @@
+<div class="resume-page">
+
+  <!-- Section: Profile Summary + Key Metrics -->
+  <div class="mb-4">
+    <h2 data-testid="competency.title" class="text-2xl font-extrabold text-primary mb-1 tracking-tight">Professional Profile</h2>
+    <div class="w-10 h-0.5 bg-accent rounded-full mb-3"></div>
+
+    <p data-testid="competency.intro" class="text-xs text-slate-700 leading-relaxed font-light text-justify mb-4" [innerHTML]="introText"></p>
+
+    <div data-testid="competency.metrics-grid" class="grid grid-cols-4 gap-3">
+      <app-metric-card-ui *ngFor="let metric of metricsList" [metric]="metric" />
+    </div>
+  </div>
+
+  <!-- Visual Separator -->
+  <div class="border-t border-indigo-100 mb-4"></div>
+
+  <!-- Section: Technical Competencies — 2-Column Layout -->
+  <div data-testid="competency.grid" class="grid grid-cols-2 gap-4">
+
+    <!-- Left Column: Core Skills -->
+    <div class="bg-white border border-slate-100 rounded-xl p-4">
+      <app-shared-section-heading-ui title="Core Skills" />
+      <div data-testid="competency.skills-list" class="flex flex-wrap gap-1.5 mt-2">
+        <app-shared-skill-tag-ui *ngFor="let skill of skillsList" [label]="skill" variant="default" />
+      </div>
+    </div>
+
+    <!-- Right Column: Tools & AI -->
+    <div class="flex flex-col gap-3">
+      <!-- Tools Matrix -->
+      <div class="bg-white border border-slate-100 rounded-xl p-4">
+        <app-shared-section-heading-ui title="Tools Matrix" />
+        <div data-testid="competency.tools-list" class="space-y-1.5 text-xs mt-2">
+          <div *ngFor="let tool of toolsList" class="leading-relaxed">
+            <span class="font-bold text-primary">{{ tool.key }}:</span>
+            <span class="text-slate-600 font-light"> {{ tool.values }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Proficiency -->
+      <div class="bg-white border border-slate-100 rounded-xl p-4">
+        <app-shared-section-heading-ui title="AI Proficiency" />
+        <div data-testid="competency.ai-tools-list" class="flex flex-wrap gap-1.5 mt-2">
+          <app-shared-skill-tag-ui *ngFor="let ai of aiToolsList" [label]="ai" variant="ai" />
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Breathing space between content and footer -->
+  <div class="flex-1 min-h-6"></div>
+
+  <app-shared-page-footer-ui [pageConfig]="pageConfig" />
+</div>

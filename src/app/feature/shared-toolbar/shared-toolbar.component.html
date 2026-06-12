@@ -1,0 +1,25 @@
+<div class="no-print bg-slate-900 text-white py-4 px-6 sticky top-0 z-50 shadow-md flex flex-col md:flex-row justify-between items-center gap-4">
+  <div class="flex items-center gap-3">
+    <div class="w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center font-bold text-lg">V</div>
+    <div>
+      <h1 class="text-lg font-bold leading-tight m-0 text-white">Vida Taghiyar</h1>
+      <p class="text-xs text-slate-400">{{ router.url.includes('resume') ? '2 Page ATS-Optimized Resume' : '12 Page Visual Portfolio' }}</p>
+    </div>
+  </div>
+  <div class="flex items-center gap-4">
+    <!-- Navigation Toggle -->
+    <div class="flex bg-slate-800 rounded-full p-1">
+      <a routerLink="/resume" routerLinkActive="!bg-indigo-600 !text-white" class="text-sm font-medium px-4 py-1.5 rounded-full transition-all duration-200 text-slate-400 hover:text-white cursor-pointer">Resume</a>
+      <a routerLink="/portfolio" routerLinkActive="!bg-indigo-600 !text-white" class="text-sm font-medium px-4 py-1.5 rounded-full transition-all duration-200 text-slate-400 hover:text-white cursor-pointer">Portfolio</a>
+    </div>
+    <div class="text-xs text-slate-300 hidden lg:block max-w-xs text-right">
+      <strong>Pro Tip:</strong> In the print dialog, enable <em>Background Graphics</em> and set margins to <em>None</em> or <em>Default</em>.
+    </div>
+    <button (click)="printDocument()" class="bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold py-2 px-5 rounded-full shadow transition-all duration-200 cursor-pointer flex items-center gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0 1 10.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0 .229 2.523a1.125 1.125 0 0 1-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0 0 21 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 0 0-14.326 0C3.768 7.44 3 8.375 3 9.456v6.294a2.25 2.25 0 0 0 2.25 2.25h1.091" />
+      </svg>
+      {{ router.url.includes('resume') ? 'Print Resume' : 'Print Portfolio' }}
+    </button>
+  </div>
+</div>

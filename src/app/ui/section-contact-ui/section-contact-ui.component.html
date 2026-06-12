@@ -1,0 +1,48 @@
+<!-- Contact Content (rendered inside shared-page-hero shell) -->
+<div class="flex-1 flex flex-col justify-center items-center px-10 text-center">
+  <div data-testid="contact.icon" class="w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-indigo-300 mb-6">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 3.75v4.5m0-4.5h-4.5m4.5 0-9 9m-9-9v4.5m0-4.5h4.5m-4.5 0 9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0 9-9m9 9v-4.5m0 4.5h-4.5m4.5 0-9-9" />
+    </svg>
+  </div>
+  <h2 data-testid="contact.heading" class="text-3xl font-extrabold text-white mb-3">Looking forward to your call</h2>
+  <p data-testid="contact.description" class="text-sm text-white/60 font-light max-w-md mb-8 leading-relaxed">I am highly motivated to contribute to forward-thinking digital teams. Let's arrange a brief conversation to explore collaborative positions!</p>
+  <div data-testid="contact.cards" class="w-full max-w-sm space-y-3">
+    <a [href]="'tel:' + personalInfo.phone" data-testid="contact.phone" class="flex items-center gap-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 p-4 rounded-xl text-left transition-all duration-200 cursor-pointer group">
+      <div class="w-10 h-10 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-indigo-300 flex-shrink-0 group-hover:text-white group-hover:border-white/30 transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-1.514 2.018a14.992 14.992 0 0 1-6.527-6.527l2.018-1.514c.362-.272.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" /></svg>
+      </div>
+      <div>
+        <div class="text-xs text-white/40 font-bold uppercase tracking-wider group-hover:text-white/60 transition-colors">Direct Phone</div>
+        <div class="text-sm font-semibold text-white">{{ personalInfo.phone }}</div>
+      </div>
+    </a>
+    <a [href]="'mailto:' + personalInfo.email" data-testid="contact.email" class="flex items-center gap-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 p-4 rounded-xl text-left transition-all duration-200 cursor-pointer group">
+      <div class="w-10 h-10 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-indigo-300 flex-shrink-0 group-hover:text-white group-hover:border-white/30 transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.626a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" /></svg>
+      </div>
+      <div>
+        <div class="text-xs text-white/40 font-bold uppercase tracking-wider group-hover:text-white/60 transition-colors">Email Address</div>
+        <div class="text-sm font-semibold text-white">{{ personalInfo.email }}</div>
+      </div>
+    </a>
+    <a data-testid="contact.website" [href]="personalInfo.website" target="_blank" class="flex items-center gap-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 p-4 rounded-xl text-left transition-all duration-200 cursor-pointer group">
+      <div class="w-10 h-10 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-indigo-300 flex-shrink-0 group-hover:text-white group-hover:border-white/30 transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-.778.099-1.533.284-2.253" /></svg>
+      </div>
+      <div>
+        <div class="text-xs text-white/40 font-bold uppercase tracking-wider group-hover:text-white/60 transition-colors">Portfolio / Website</div>
+        <div class="text-sm font-semibold text-white">vidatg.github.io</div>
+      </div>
+    </a>
+    <div data-testid="contact.availability" class="flex items-center gap-4 bg-white/5 border border-white/10 p-4 rounded-xl text-left">
+      <div class="w-10 h-10 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-indigo-300 flex-shrink-0">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" /></svg>
+      </div>
+      <div>
+        <div class="text-xs text-white/40 font-bold uppercase tracking-wider">Standard Availability</div>
+        <div class="text-sm font-semibold text-white">{{ personalInfo.availability }}</div>
+      </div>
+    </div>
+  </div>
+</div>

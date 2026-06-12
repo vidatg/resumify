@@ -1,0 +1,77 @@
+<div class="flex flex-col flex-1 justify-between h-full">
+  <!-- Top section: Header & Details -->
+  <div class="space-y-4">
+    <!-- Project Header -->
+    <div data-testid="project-card.header" class="flex justify-between items-start border-b border-indigo-50/80 pb-3">
+      <div class="space-y-0.5">
+        <h3 data-testid="project-card.title" class="text-2xl font-extrabold text-primary tracking-tight">{{ project.title }}</h3>
+        <p class="text-xs text-slate-500 font-light">{{ project.subtitle }}</p>
+      </div>
+      <div class="text-right flex flex-col items-end gap-1 flex-shrink-0 ml-4">
+        <div data-testid="project-card.client" class="text-[10px] bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full font-bold uppercase tracking-wider">
+          {{ project.client }}
+        </div>
+        <p data-testid="project-card.timeline" class="text-[10px] text-slate-400 font-bold mt-0.5">{{ project.date }}</p>
+      </div>
+    </div>
+
+    <!-- Description with bold text -->
+    <p data-testid="project-card.description" class="text-xs text-slate-700 leading-relaxed font-light text-justify" [innerHTML]="getFormattedDescription()"></p>
+
+    <!-- Skills Tags -->
+    <div data-testid="project-card.skills" class="flex flex-wrap gap-1.5 mb-2">
+      <app-shared-skill-tag-ui *ngFor="let tag of project.skills" [label]="tag" variant="default" />
+    </div>
+  </div>
+
+  <!-- Showcase Gallery (Enlarged layouts) -->
+  <div data-testid="project-card.gallery" class="mt-6 flex-1 flex flex-col justify-end">
+    <div data-testid="project-card.gallery-label" class="text-[10px] font-bold text-primary uppercase tracking-wider mb-3 flex items-center gap-1.5">
+      <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+      Project Showcase & Results
+    </div>
+
+    <!-- Case A: 2 Gallery Items (Two Stacked Full-Width Cards) -->
+    <div *ngIf="project.gallery.length === 2" data-testid="project-card.gallery-grid" class="space-y-4">
+      <div *ngFor="let item of project.gallery; let i = index" [attr.data-testid]="'project-card.gallery-item-' + i" class="flex flex-col bg-slate-50/60 border border-slate-100/80 rounded-lg overflow-hidden shadow-sm">
+        <!-- Large Full-Width Image -->
+        <div class="w-full h-52 bg-gradient-to-br from-slate-100 to-indigo-50 overflow-hidden shadow-[inset_0_4px_12px_0_rgb(0_0_0/0.1)]">
+          <img [src]="item.image" [attr.data-testid]="'project-card.gallery-image-' + i" alt="Project image" class="w-full h-full drop-shadow-sm" [style.object-fit]="item.fit || 'contain'" [style.object-position]="item.position || 'center center'">
+        </div>
+        <!-- Caption underneath -->
+        <div class="p-3 bg-white border-t border-slate-200">
+          <p [attr.data-testid]="'project-card.gallery-caption-' + i" class="text-xs text-slate-600 leading-relaxed font-light text-justify">{{ item.caption }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case B: 3 Gallery Items (Featured Large Card + 2 Supporting Columns) -->
+    <div *ngIf="project.gallery.length === 3" data-testid="project-card.gallery-grid" class="space-y-4">
+      <!-- Featured Item (First item - Full Width) -->
+      <div data-testid="project-card.gallery-item-0" class="flex flex-col bg-slate-50/60 border border-slate-100/80 rounded-lg overflow-hidden shadow-sm">
+        <!-- Large Full-Width Image -->
+        <div class="w-full h-48 bg-gradient-to-br from-slate-100 to-indigo-50 overflow-hidden shadow-[inset_0_4px_12px_0_rgb(0_0_0/0.1)]">
+          <img data-testid="project-card.gallery-image-0" [src]="project.gallery[0].image" alt="Project image" class="w-full h-full drop-shadow-sm" [style.object-fit]="project.gallery[0].fit || 'contain'" [style.object-position]="project.gallery[0].position || 'center center'">
+        </div>
+        <!-- Caption underneath -->
+        <div class="p-3 bg-white border-t border-slate-200 flex items-start gap-3">
+          <span data-testid="project-card.gallery-badge-0" class="text-[9px] bg-emerald-50 text-emerald-700 px-2.5 py-0.5 rounded font-bold uppercase tracking-wider mt-0.5 flex-shrink-0">Key Highlight</span>
+          <p data-testid="project-card.gallery-caption-0" class="text-xs text-slate-600 leading-relaxed font-light text-justify">{{ project.gallery[0].caption }}</p>
+        </div>
+      </div>
+
+      <!-- Supporting Items (Next two items side-by-side) -->
+      <div data-testid="project-card.gallery-supporting" class="grid grid-cols-2 gap-3">
+        <div *ngFor="let item of project.gallery.slice(1); let i = index" [attr.data-testid]="'project-card.gallery-item-' + (i + 1)" class="flex flex-col bg-slate-50/60 border border-slate-100/80 rounded-lg overflow-hidden shadow-sm">
+          <div class="w-full h-64 bg-gradient-to-br from-slate-100 to-indigo-50 overflow-hidden shadow-[inset_0_4px_12px_0_rgb(0_0_0/0.1)]">
+            <img [attr.data-testid]="'project-card.gallery-image-' + (i + 1)" [src]="item.image" alt="Project image" class="w-full h-full drop-shadow-sm" [style.object-fit]="item.fit || 'contain'" [style.object-position]="item.position || 'center center'">
+          </div>
+          <div class="p-3 bg-white flex-1 border-t border-slate-200">
+            <p [attr.data-testid]="'project-card.gallery-caption-' + (i + 1)" class="text-xs text-slate-600 leading-relaxed font-light text-justify">{{ item.caption }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,18 @@
+<div data-testid="resume-experience" class="mb-2.5">
+  <!-- Company | Role | Location & Date inline with background highlight banner -->
+  <div class="text-xs flex justify-between items-baseline flex-wrap gap-x-2 bg-slate-100/70 border-l-2 border-primary px-2 py-1 rounded-r">
+    <div>
+      <span data-testid="resume-experience.company" class="font-bold text-primary">{{ experience.company }}</span>
+      <span class="mx-1 text-slate-400">|</span>
+      <span data-testid="resume-experience.role" class="text-slate-700 font-semibold">{{ experience.role }}</span>
+    </div>
+    <div data-testid="resume-experience.meta" class="text-[10.5px] text-slate-500">
+      {{ experience.location }} &middot; {{ experience.date }}
+    </div>
+  </div>
+
+  <!-- Bullet Points (innerHTML to support <strong> tags for bold metrics) -->
+  <ul class="list-disc list-outside ml-4 mt-1 text-xs text-slate-700 space-y-0.5">
+    <li *ngFor="let bullet of experience.bullets" data-testid="resume-experience.bullet" class="leading-snug" [innerHTML]="bullet"></li>
+  </ul>
+</div>

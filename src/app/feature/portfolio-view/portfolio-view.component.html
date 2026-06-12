@@ -1,0 +1,37 @@
+<!-- PAGE 1: HERO INTRO -->
+<app-shared-page-hero [pageNumber]="1">
+  <app-section-hero />
+</app-shared-page-hero>
+
+<!-- PAGE 2: COMPETENCY OVERVIEW -->
+<app-section-competency />
+
+<!-- PAGE 3: DIVIDER — RECOGNITIONS & ACHIEVEMENTS -->
+<app-shared-page-hero
+  [pageNumber]="3"
+  title="Recognitions & Achievements"
+  subtitle="Key accomplishments, certifications, and highlighted project showcases."
+/>
+
+<!-- PAGE 4: ACHIEVEMENTS CONTENT -->
+<app-section-achievements />
+
+<!-- PAGE 5: DIVIDER — SELECTED PROJECTS -->
+<app-shared-page-hero
+  [pageNumber]="5"
+  title="Selected Projects"
+  subtitle="In-depth case studies showcasing strategy, execution, and measurable results."
+/>
+
+<!-- PAGES 6-11: PROJECTS -->
+<app-section-projects [pageNumber]="6" [isFirstPage]="true" />
+<app-section-projects [pageNumber]="7" />
+<app-section-projects [pageNumber]="8" />
+<app-section-projects [pageNumber]="9" />
+<app-section-projects [pageNumber]="10" />
+<app-section-projects [pageNumber]="11" />
+
+<!-- PAGE 12: CLOSING -->
+<app-shared-page-hero [pageNumber]="12">
+  <app-section-contact />
+</app-shared-page-hero>
