@@ -1,0 +1,17 @@
+<div class="resume-page">
+  <!-- Running Header -->
+  <div class="flex justify-between items-center text-[10px] uppercase tracking-wider text-slate-400 border-b border-slate-100 pb-2 mb-6">
+    <span class="font-medium">Vida Taghiyar | Portfolio</span>
+    <span class="font-bold text-slate-500">Selected Projects</span>
+  </div>
+
+  <div class="flex-1 flex flex-col justify-between mb-4">
+    <app-portfolio-project-card-ui
+      *ngFor="let project of projects; let last = last"
+      [project]="project"
+      [isLast]="last"
+    />
+  </div>
+
+  <app-shared-page-footer-ui [pageConfig]="pageConfig" />
+</div>

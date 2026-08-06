@@ -12,7 +12,7 @@ All smart (container) components live in this directory.
 
 ## Structure
 
-- `section-*/` — Each feature component corresponds to a `section-*-ui/` in the `ui/` directory
+- `portfolio-*/` — Each feature component corresponds to a `portfolio-*-ui/` in the `ui/` directory
 - `shared-*/` — Shared feature components that initialize their own `shared-*-ui/` counterparts.
   These are reusable page-level shells (e.g., hero page wrapper) that accept
   `<ng-content>` to compose different section content within a common layout.

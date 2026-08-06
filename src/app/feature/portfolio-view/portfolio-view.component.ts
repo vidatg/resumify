@@ -1,20 +1,20 @@
 import { Component } from '@angular/core';
-import { SectionHeroComponent } from '../section-hero/section-hero.component';
-import { SectionCompetencyComponent } from '../section-competency/section-competency.component';
-import { SectionAchievementsComponent } from '../section-achievements/section-achievements.component';
-import { SectionProjectsComponent } from '../section-projects/section-projects.component';
-import { SectionContactComponent } from '../section-contact/section-contact.component';
+import { PortfolioHeroComponent } from '../portfolio-hero/portfolio-hero.component';
+import { PortfolioCompetencyComponent } from '../portfolio-competency/portfolio-competency.component';
+import { PortfolioAchievementsComponent } from '../portfolio-achievements/portfolio-achievements.component';
+import { PortfolioProjectsComponent } from '../portfolio-projects/portfolio-projects.component';
+import { PortfolioContactComponent } from '../portfolio-contact/portfolio-contact.component';
 import { SharedPageHeroComponent } from '../shared-page-hero/shared-page-hero.component';
 
 @Component({
   selector: 'app-portfolio-view',
   standalone: true,
   imports: [
-    SectionHeroComponent,
-    SectionCompetencyComponent,
-    SectionAchievementsComponent,
-    SectionProjectsComponent,
-    SectionContactComponent,
+    PortfolioHeroComponent,
+    PortfolioCompetencyComponent,
+    PortfolioAchievementsComponent,
+    PortfolioProjectsComponent,
+    PortfolioContactComponent,
     SharedPageHeroComponent
   ],
   templateUrl: './portfolio-view.component.html',

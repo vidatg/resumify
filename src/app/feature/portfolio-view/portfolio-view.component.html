@@ -1,10 +1,10 @@
 <!-- PAGE 1: HERO INTRO -->
 <app-shared-page-hero [pageNumber]="1">
-  <app-section-hero />
+  <app-portfolio-hero />
 </app-shared-page-hero>
 
 <!-- PAGE 2: COMPETENCY OVERVIEW -->
-<app-section-competency />
+<app-portfolio-competency />
 
 <!-- PAGE 3: DIVIDER — RECOGNITIONS & ACHIEVEMENTS -->
 <app-shared-page-hero
@@ -14,7 +14,7 @@
 />
 
 <!-- PAGE 4: ACHIEVEMENTS CONTENT -->
-<app-section-achievements />
+<app-portfolio-achievements />
 
 <!-- PAGE 5: DIVIDER — SELECTED PROJECTS -->
 <app-shared-page-hero
@@ -24,14 +24,14 @@
 />
 
 <!-- PAGES 6-11: PROJECTS -->
-<app-section-projects [pageNumber]="6" [isFirstPage]="true" />
-<app-section-projects [pageNumber]="7" />
-<app-section-projects [pageNumber]="8" />
-<app-section-projects [pageNumber]="9" />
-<app-section-projects [pageNumber]="10" />
-<app-section-projects [pageNumber]="11" />
+<app-portfolio-projects [pageNumber]="6" [isFirstPage]="true" />
+<app-portfolio-projects [pageNumber]="7" />
+<app-portfolio-projects [pageNumber]="8" />
+<app-portfolio-projects [pageNumber]="9" />
+<app-portfolio-projects [pageNumber]="10" />
+<app-portfolio-projects [pageNumber]="11" />
 
 <!-- PAGE 12: CLOSING -->
 <app-shared-page-hero [pageNumber]="12">
-  <app-section-contact />
+  <app-portfolio-contact />
 </app-shared-page-hero>

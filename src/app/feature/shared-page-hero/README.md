@@ -25,6 +25,6 @@ Supports two modes via its inner UI component:
 
 <!-- Content projection mode (page 1) -->
 <app-shared-page-hero [pageNumber]="1">
-  <app-section-hero />
+  <app-portfolio-hero />
 </app-shared-page-hero>
 ```

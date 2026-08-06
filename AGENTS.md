@@ -19,11 +19,11 @@ src/app/
 │   ├── resume-view/        # ATS resume (routed, lazy-loaded)
 │   ├── portfolio-view/     # Visual portfolio (routed, lazy-loaded)
 │   ├── shared-toolbar/     # Navigation toggle + print button (app shell)
-│   ├── section-*/          # Portfolio section-specific (1:1 with a section-*-ui)
+│   ├── portfolio-*/        # Portfolio-only (1:1 with a portfolio-*-ui)
 │   └── shared-*/           # Shared feature shells (compose via <ng-content>)
 └── ui/             # Dumb components — @Input() only, OnPush, no services
     ├── resume-*-ui/        # Resume-specific (header, experience, section)
-    ├── section-*-ui/       # Portfolio section-specific (paired with feature/section-*)
+    ├── portfolio-*-ui/     # Portfolio-only (paired with feature/portfolio-*)
     └── shared-*-ui/        # Reusable atoms (footer, heading, skill tag, page hero)
 ```
 
@@ -71,11 +71,11 @@ The portfolio uses two alternating page types:
 
 | Layer | Prefix | Example | Selector |
 |-------|--------|---------|----------|
-| Feature (section) | `section-{name}` | `SectionHeroComponent` | `app-section-hero` |
+| Feature (portfolio) | `portfolio-{name}` | `PortfolioHeroComponent` | `app-portfolio-hero` |
 | Feature (shared) | `shared-{scope}-{name}` | `SharedPageHeroComponent` | `app-shared-page-hero` |
 | Feature (view) | `{doc}-view` | `ResumeViewComponent` | `app-resume-view` |
 | UI (resume) | `resume-{name}-ui` | `ResumeHeaderUiComponent` | `app-resume-header-ui` |
-| UI (section) | `section-{name}-ui` | `SectionHeroUiComponent` | `app-section-hero-ui` |
+| UI (portfolio) | `portfolio-{name}-ui` | `PortfolioHeroUiComponent` | `app-portfolio-hero-ui` |
 | UI (shared) | `shared-{scope}-{name}-ui` | `SharedPageFooterUiComponent` | `app-shared-page-footer-ui` |
 
 ## Component Standards
@@ -132,10 +132,10 @@ Naming convention: `{context}_{descriptor}.jpg` — e.g. `project_substly_01.png
 4. Increment `totalPages` if adding a page
 
 ### To add a new portfolio section
-1. Create `feature/section-{name}/` — smart component injecting `PortfolioDataService`
-2. Create `ui/section-{name}-ui/` — presentational component
+1. Create `feature/portfolio-{name}/` — smart component injecting `PortfolioDataService`
+2. Create `ui/portfolio-{name}-ui/` — presentational component
 3. Add data to `portfolio-data.service.ts` + increment `totalPages`
-4. Add `<app-section-{name} />` in `feature/portfolio-view/portfolio-view.component.html`
+4. Add `<app-portfolio-{name} />` in `feature/portfolio-view/portfolio-view.component.html`
 5. Import the feature component in `portfolio-view.component.ts`
 
 ## Project Configuration
