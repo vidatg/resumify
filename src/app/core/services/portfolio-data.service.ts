@@ -21,7 +21,7 @@ export class PortfolioDataService {
       { id: 'phone', label: 'Direct Phone', value: '+46 73 852 98 33', href: 'tel:+46738529833', icon: 'phone' },
       { id: 'email', label: 'Email Address', value: 'vida.taghiyar@gmail.com', href: 'mailto:vida.taghiyar@gmail.com', icon: 'email' },
       { id: 'location', label: 'Location', value: 'Gothenburg, Sweden', icon: 'location' },
-      { id: 'linkedin', label: 'LinkedIn', value: 'linkedin.com/in/zahrataghiyar', href: 'https://www.linkedin.com/in/zahrataghiyar/', icon: 'linkedin' },
+      { id: 'linkedin', label: 'LinkedIn', value: 'in/zahrataghiyar', href: 'https://www.linkedin.com/in/zahrataghiyar/', icon: 'linkedin' },
       { id: 'website', label: 'Portfolio / Website', value: 'vidatg.github.io', href: 'https://vidatg.github.io/', icon: 'website' },
       { id: 'availability', label: 'Standard Availability', value: 'Available immediately', icon: 'availability' }
     ]
