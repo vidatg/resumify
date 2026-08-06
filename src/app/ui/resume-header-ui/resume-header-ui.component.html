@@ -15,21 +15,22 @@
   <!-- Divider -->
   <div class="border-t border-slate-300 my-2.5"></div>
 
-  <!-- Contact Row 1: Phone | Email | Location -->
-  <p data-testid="resume-header.contact-row-1" class="text-xs text-slate-600 leading-relaxed">
-    <a [href]="'tel:' + personalInfo.phone" class="text-accent hover:underline">{{ personalInfo.phone }}</a>
-    <span class="mx-1.5">|</span>
-    <a [href]="'mailto:' + personalInfo.email" class="text-accent hover:underline">{{ personalInfo.email }}</a>
-    <span class="mx-1.5">|</span>
-    <span>{{ personalInfo.location }}</span>
-  </p>
-
-  <!-- Contact Row 2: LinkedIn | Website | Availability -->
-  <p data-testid="resume-header.contact-row-2" class="text-xs text-slate-600 leading-relaxed mt-0.5">
-    <a [href]="personalInfo.linkedin" target="_blank" rel="noopener" class="text-accent hover:underline">{{ personalInfo.linkedin }}</a>
-    <span class="mx-1.5">|</span>
-    <a [href]="personalInfo.website" target="_blank" rel="noopener" class="text-accent hover:underline">{{ personalInfo.website }}</a>
-    <span class="mx-1.5">|</span>
-    <span>{{ personalInfo.availability }}</span>
+  <!-- Contact line (driven by personalInfo.contacts) -->
+  <p data-testid="resume-header.contact" class="text-xs text-slate-600 leading-relaxed">
+    <ng-container *ngFor="let contact of personalInfo.contacts; let last = last">
+      <a
+        *ngIf="contact.href"
+        [attr.data-testid]="'resume-header.contact-' + contact.id"
+        [href]="contact.href"
+        [attr.target]="isExternal(contact.href) ? '_blank' : null"
+        [attr.rel]="isExternal(contact.href) ? 'noopener' : null"
+        class="text-accent hover:underline"
+      >{{ contact.value }}</a>
+      <span
+        *ngIf="!contact.href"
+        [attr.data-testid]="'resume-header.contact-' + contact.id"
+      >{{ contact.value }}</span>
+      <span *ngIf="!last" class="mx-1.5">|</span>
+    </ng-container>
   </p>
 </header>

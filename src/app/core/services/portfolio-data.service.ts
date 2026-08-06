@@ -16,13 +16,15 @@ export class PortfolioDataService {
   readonly personalInfo: PersonalInfo = {
     name: 'Vida Taghiyar',
     jobTitle: 'Digital Marketing Specialist and Product Manager',
-    phone: '+46 73 852 98 33',
-    email: 'vida.taghiyar@gmail.com',
-    location: 'Gothenburg, Sweden',
-    availability: 'Available immediately',
     heroImage: 'assets/hero_vida.jpg',
-    website: 'https://vidatg.github.io/',
-    linkedin: 'https://www.linkedin.com/in/zahrataghiyar/'
+    contacts: [
+      { id: 'phone', label: 'Direct Phone', value: '+46 73 852 98 33', href: 'tel:+46738529833', icon: 'phone' },
+      { id: 'email', label: 'Email Address', value: 'vida.taghiyar@gmail.com', href: 'mailto:vida.taghiyar@gmail.com', icon: 'email' },
+      { id: 'location', label: 'Location', value: 'Gothenburg, Sweden', icon: 'location' },
+      { id: 'linkedin', label: 'LinkedIn', value: 'linkedin.com/in/zahrataghiyar', href: 'https://www.linkedin.com/in/zahrataghiyar/', icon: 'linkedin' },
+      { id: 'website', label: 'Portfolio / Website', value: 'vidatg.github.io', href: 'https://vidatg.github.io/', icon: 'website' },
+      { id: 'availability', label: 'Standard Availability', value: 'Available immediately', icon: 'availability' }
+    ]
   };
 
   readonly introText = `My journey in digital marketing began in 2017 when an article I wrote about traveling to Kerman, one of Iran's historic cities, ranked #1 on Google and remained there for years. Since then, I have developed my expertise in <strong>SEO, SEM, content strategy, social media, and product marketing</strong> across diverse B2B tech, fintech, and e-commerce brands globally. Throughout my career, I have focused on <strong>aligning go-to-market strategies with business goals</strong>, <strong>translating technical features into customer-centric messaging</strong>, and managing cross-functional initiatives. After moving to Sweden, I adapted my skills to the <strong>Nordic market</strong> through my work at Substly. Now, I am excited to leverage my track record of <strong>multi-channel execution and growth</strong> to help drive engagement for purpose-driven brands.`;

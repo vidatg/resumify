@@ -1,13 +1,26 @@
+export type ContactIcon =
+  | 'phone'
+  | 'email'
+  | 'location'
+  | 'availability'
+  | 'website'
+  | 'linkedin'
+  | 'generic';
+
+/** Declarative contact/meta field — add/remove/reorder in data services without template edits */
+export interface ContactItem {
+  id: string;
+  label: string;
+  value: string;
+  href?: string;
+  icon?: ContactIcon;
+}
+
 export interface PersonalInfo {
   name: string;
   jobTitle: string;
-  phone: string;
-  email: string;
-  location: string;
-  availability: string;
   heroImage: string;
-  website: string;
-  linkedin: string;
+  contacts: ContactItem[];
 }
 
 export interface ToolCategory {

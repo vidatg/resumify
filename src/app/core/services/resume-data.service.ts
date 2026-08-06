@@ -16,13 +16,15 @@ export class ResumeDataService {
   readonly personalInfo: PersonalInfo = {
     name: 'Vida Taghiyar',
     jobTitle: 'Digital Marketing Specialist and Product Manager',
-    phone: '+46 73 852 98 33',
-    email: 'vida.taghiyar@gmail.com',
-    location: 'Gothenburg, Sweden',
-    availability: 'Available immediately',
     heroImage: 'assets/th_vida.png',
-    website: 'https://vidatg.github.io/',
-    linkedin: 'https://www.linkedin.com/in/zahrataghiyar/'
+    contacts: [
+      { id: 'phone', label: 'Phone', value: '+46 73 852 98 33', href: 'tel:+46738529833', icon: 'phone' },
+      { id: 'email', label: 'Email', value: 'vida.taghiyar@gmail.com', href: 'mailto:vida.taghiyar@gmail.com', icon: 'email' },
+      { id: 'location', label: 'Location', value: 'Gothenburg, Sweden', icon: 'location' },
+      { id: 'linkedin', label: 'LinkedIn', value: 'https://www.linkedin.com/in/zahrataghiyar/', href: 'https://www.linkedin.com/in/zahrataghiyar/', icon: 'linkedin' },
+      { id: 'website', label: 'Website', value: 'https://vidatg.github.io/', href: 'https://vidatg.github.io/', icon: 'website' },
+      { id: 'availability', label: 'Availability', value: 'Available immediately', icon: 'availability' }
+    ]
   };
 
   readonly introText = `<strong>Digital Marketing Specialist and Product Manager</strong> with 8+ years of experience specializing in <strong>GTM strategy, product launches, and cross-functional collaboration</strong>. Proven track record of driving <strong>B2B growth and revenue</strong> across SaaS, fintech, and digital agency settings — achieving up to <strong>420% average ROI and 6.5x ROAS</strong>. Skilled in crafting clear, <strong>customer-focused messaging</strong>, leading multi-channel campaigns, and optimizing brand visibility via <strong>SEO and generative engine optimization (GEO)</strong>.`;
