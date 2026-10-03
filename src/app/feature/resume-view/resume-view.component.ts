@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { ResumeDataService } from '../../core/services/resume-data.service';
 import { ResumeHeaderUiComponent } from '../../ui/resume-header-ui/resume-header-ui.component';
 import { ResumeExperienceUiComponent } from '../../ui/resume-experience-ui/resume-experience-ui.component';
@@ -12,6 +12,7 @@ import { ResumePageConfig } from '../../core/models/resume.models';
   standalone: true,
   imports: [
     NgFor,
+    NgIf,
     ResumeHeaderUiComponent,
     ResumeExperienceUiComponent,
     ResumeSectionUiComponent,
@@ -26,11 +27,11 @@ export class ResumeViewComponent {
   readonly introText = this.data.introText;
   readonly skillsList = this.data.skillsList;
   readonly toolsList = this.data.toolsList;
-  readonly aiToolsList = this.data.aiToolsList;
+  readonly publication = this.data.publication;
+  readonly researchExperience = this.data.researchExperience;
   readonly workExperiences = this.data.workExperiences;
   readonly education = this.data.education;
   readonly languages = this.data.languages;
-  readonly achievementBullets = this.data.achievementBullets;
 
   getPageConfig(page: number): ResumePageConfig {
     return this.data.getPageConfig(page);

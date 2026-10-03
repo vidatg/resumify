@@ -7,7 +7,7 @@
       <span data-testid="resume-experience.role" class="text-slate-700 font-semibold">{{ experience.role }}</span>
     </div>
     <div data-testid="resume-experience.meta" class="text-[10.5px] text-slate-500">
-      {{ experience.location }} &middot; {{ experience.date }}
+      {{ experience.location }}<ng-container *ngIf="experience.date"> &middot; {{ experience.date }}</ng-container>
     </div>
   </div>
 

@@ -84,6 +84,16 @@ export interface Education {
   degree: string;
   field: string;
   date: string;
+  thesisTitle?: string;
+  thesisMeta?: string;
+  details?: string[];
+}
+
+/** Conference paper or poster */
+export interface Publication {
+  citation: string;
+  title: string;
+  details: string;
 }
 
 /** Language proficiency */

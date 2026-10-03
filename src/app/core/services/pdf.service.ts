@@ -13,7 +13,7 @@ export class PdfService {
   printDocument(): void {
     const isResume = this.router.url.includes('resume');
     document.title = isResume
-      ? 'Vida Taghiyar - Resume'
+      ? 'Zahra Taghiyar - Resume'
       : 'Vida Taghiyar - Portfolio';
     window.print();
   }

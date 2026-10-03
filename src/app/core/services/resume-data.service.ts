@@ -1,139 +1,153 @@
 import { Injectable } from '@angular/core';
 import {
-  PersonalInfo, ToolCategory, WorkExperience, Education, Language, ResumePageConfig
+  PersonalInfo, ToolCategory, WorkExperience, Education, Language, Publication, ResumePageConfig
 } from '../models/resume.models';
 
 @Injectable({ providedIn: 'root' })
 export class ResumeDataService {
 
   readonly totalPages = 2;
-  readonly footerName = 'Vida Taghiyar | Resume';
+  readonly footerName = 'Zahra Taghiyar | Resume';
 
   getPageConfig(page: number): ResumePageConfig {
     return { currentPage: page, totalPages: this.totalPages, footerName: this.footerName };
   }
 
   readonly personalInfo: PersonalInfo = {
-    name: 'Vida Taghiyar',
-    jobTitle: 'Digital Marketing Specialist and Product Manager',
+    name: 'Zahra Taghiyar',
+    jobTitle: 'PhD Applicant | Information Technology & Management Information Systems',
     heroImage: 'assets/th_vida.png',
     contacts: [
-      { id: 'phone', label: 'Phone', value: '+46 73 852 98 33', href: 'tel:+46738529833', icon: 'phone' },
-      { id: 'email', label: 'Email', value: 'vida.taghiyar@gmail.com', href: 'mailto:vida.taghiyar@gmail.com', icon: 'email' },
       { id: 'location', label: 'Location', value: 'Gothenburg, Sweden', icon: 'location' },
-      { id: 'linkedin', label: 'LinkedIn', value: 'https://www.linkedin.com/in/zahrataghiyar/', href: 'https://www.linkedin.com/in/zahrataghiyar/', icon: 'linkedin' },
-      { id: 'website', label: 'Website', value: 'https://vidatg.github.io/', href: 'https://vidatg.github.io/', icon: 'website' },
-      { id: 'availability', label: 'Availability', value: 'Available immediately', icon: 'availability' }
+      { id: 'email', label: 'Email', value: 'vida.taghiyar@gmail.com', href: 'mailto:vida.taghiyar@gmail.com', icon: 'email' },
+      { id: 'website', label: 'Portfolio', value: 'Portfolio', href: 'https://vidatg.github.io/', icon: 'website' },
+      { id: 'linkedin', label: 'LinkedIn', value: 'LinkedIn', href: 'https://linkedin.com/in/vidataghiyar', icon: 'linkedin' },
+      { id: 'github', label: 'GitHub', value: 'GitHub', href: 'https://github.com/vidatg', icon: 'generic' }
     ]
   };
 
-  readonly introText = `<strong>Digital Marketing Specialist and Product Manager</strong> with 8+ years of experience specializing in <strong>GTM strategy, product launches, and cross-functional collaboration</strong>. Proven track record of driving <strong>B2B growth and revenue</strong> across SaaS, fintech, and digital agency settings — achieving up to <strong>420% average ROI and 6.5x ROAS</strong>. Skilled in crafting clear, <strong>customer-focused messaging</strong>, leading multi-channel campaigns, and optimizing brand visibility via <strong>SEO and generative engine optimization (GEO)</strong>.`;
+  readonly introText = `Information Technology graduate with an academic background in Management Information Systems and research experience in user behavior in digital environments, e-commerce, e-loyalty, and evaluation of interactive digital services. Master's research examined how characteristics of B2B digital environments relate to perceived value, satisfaction, organizational image, and user loyalty. Current research interests focus on human-centered AI, user and preference modeling, adaptive interactive systems, computational creativity, and AI-supported personalization.`;
 
   readonly skillsList: string[] = [
-    'Digital & Technical Marketing', 'SEO & Content Strategy', 'GEO (Generative Engine Optimization)',
-    'Brand Management', 'Customer Journey Optimization', 'Product Management', 'Data Analysis & Visualization',
-    'Agile/Scrum (SDLC)', 'Multi-Channel Campaigns', 'Copywriting & Content Creation',
-    'Client & Stakeholder Communication', 'Project Planning & Resource Allocation'
+    'Human-Centered AI', 'User & Preference Modeling', 'Adaptive Interactive Systems',
+    'Computational Creativity', 'Human–AI Interaction', 'User Behavior in Digital Environments',
+    'AI-Driven Personalization'
   ];
 
   readonly toolsList: ToolCategory[] = [
-    { key: 'Marketing', values: 'Google Analytics (GA4), Looker Studio, Hotjar, Microsoft Clarity, LinkedIn Campaign Manager, Hootsuite, Canva' },
-    { key: 'Office & Productivity', values: 'Microsoft Office Suite, Google Workspace' },
-    { key: 'Project Management', values: 'Jira, Asana, Trello, Confluence' },
-    { key: 'Data & Design', values: 'Tableau, Figma' },
-    { key: 'CRM', values: 'Salesforce, Zoho' }
+    { key: 'Research', values: 'Literature review; conceptual model development; hypothesis formulation and testing; questionnaire design; survey research; empirical data collection; quantitative analysis; research presentation' },
+    { key: 'Analytics & Experimentation', values: 'A/B testing; conversion optimization; user behavior analysis; Google Analytics (GA4); Looker Studio; Google Search Console; Hotjar; Microsoft Clarity; Tableau' },
+    { key: 'Digital & Technical', values: 'SEO; technical SEO; information architecture; digital experimentation; API familiarity; B2B SaaS' },
+    { key: 'AI Tool Familiarity', values: 'Google AI Studio; Firebase Studio; AI-assisted digital tools' }
   ];
 
-  readonly aiToolsList: string[] = [
-    'ChatGPT', 'Midjourney', 'Google AI Studio', 'Google Antigravity', 'Claude', 'N8N Low-Code Automation'
+  readonly publication: Publication = {
+    citation: 'Taghiyar, Z.',
+    title: 'A Review of E-loyalty Models in Business to Business E-commerce Context.',
+    details: 'Poster presentation, 11th International Conference on e-Commerce in Developing Countries (ECDC 2017), Isfahan, Iran, 14–15 April 2017.'
+  };
+
+  readonly researchExperience: WorkExperience[] = [
+    {
+      company: 'Foolad Institute of Technology',
+      role: "Master's Researcher — IT / Management Information Systems",
+      location: 'Iran',
+      date: '',
+      bullets: [
+        'Reviewed and compared e-loyalty models and behavioral and attitudinal conceptualizations of loyalty in B2B electronic marketplaces.',
+        'Developed a conceptual model addressing digital service quality, website quality, information quality, communication quality, perceived value, satisfaction, organizational image, and loyalty.',
+        'Conducted questionnaire-based empirical research and reliability assessment, followed by statistical evaluation of research hypotheses.'
+      ]
+    }
   ];
 
   readonly workExperiences: WorkExperience[] = [
     {
       company: 'Substly',
-      role: 'Digital Marketing Intern',
+      role: 'SEO Specialist & B2B Content Manager',
       location: 'Gothenburg, Sweden',
-      date: 'Feb 2026 – Jun 2026',
+      date: 'Feb 2026–Present',
       bullets: [
-        '<strong>Social Selling & LinkedIn Strategy:</strong> Developed and executed LinkedIn social selling strategy, significantly increasing content impressions and B2B engagement with Nordic IT providers.',
-        '<strong>Generative Engine Optimization (GEO):</strong> Conducted GEO audits to improve brand visibility and organic search positioning across AI search platforms.'
+        'Develop SEO, SEM, content and positioning strategies for a B2B SaaS environment serving IT providers and Nordic technology markets.',
+        'Use performance analytics to evaluate digital behavior and content effectiveness; work on Answer Engine Optimization and AI-mediated information discovery.'
       ]
     },
     {
-      company: 'Eiredigital',
-      role: 'Marketing Communications Manager',
-      location: 'Dublin, Ireland. Remote',
-      date: 'Aug 2024 – Nov 2025',
+      company: 'Eiredigital Marketing Agency',
+      role: 'Digital Marketing Specialist',
+      location: 'Dublin, Ireland, Remote',
+      date: 'Aug 2024–Nov 2025',
       bullets: [
-        '<strong>Campaign & GTM Execution:</strong> Planned and led seasonal, promotional, and product launch GTM rollouts; optimized Meta Ads campaigns to achieve a <strong>35% reduction in CPL</strong> and <strong>3.8x ROAS</strong>.',
-        '<strong>Content & Messaging Leadership:</strong> Directed content development and crafted benefit-driven messaging that scaled weekly bookings for a healthcare client by <strong>210%</strong> (growing monthly revenue from <strong>€0 to €15,000+</strong>).',
-        '<strong>Client & Project Strategy:</strong> Served as a strategic bridge between clients and cross-functional teams, managing multi-stakeholder initiatives to ensure alignment across all project deliverables.'
+        'Worked with data-driven experimentation, SEO, conversion analysis, A/B testing, and digital performance measurement.'
       ]
     },
     {
       company: 'Ai11 Consulting GmbH',
-      role: 'Marketing Communications Lead – B2B Tech',
-      location: 'Vienna, Austria. Remote',
-      date: 'Jan 2024 – Nov 2025',
+      role: 'Marketing Communications Lead',
+      location: 'Vienna, Austria, Remote',
+      date: 'Jan 2024–Nov 2025',
       bullets: [
-        '<strong>SEO & Lead Generation:</strong> Implemented SEO tactics to boost inbound visibility, growing website organic traffic by <strong>75%</strong> and increasing monthly qualified B2B leads by <strong>45%</strong>.',
-        '<strong>Content & Brand Strategy:</strong> Developed LinkedIn and content plans to position Ai11 as a trusted B2B Salesforce consultancy, doubling LinkedIn engagement rate through structured thought-leadership and case study content.',
-        '<strong>GTM & Campaign Execution:</strong> Led go-to-market strategies and launched <strong>3 successful campaigns</strong> for major service lines (Sales Cloud, Service Cloud, CPQ).'
+        'Worked in a B2B technology environment on digital strategy, user acquisition, conversion optimization, and experimentation.'
       ]
     },
     {
-      company: 'AMarkets',
-      role: 'Social Media Marketing Manager',
-      location: 'Yerevan, Armenia. Remote',
-      date: 'Dec 2022 – Sep 2023',
+      company: 'Preply',
+      role: 'Marketing Specialist Tutor',
+      location: 'Remote',
+      date: 'Sep 2023–Present',
       bullets: [
-        '<strong>Social Media Strategy:</strong> Developed and executed social media strategies that supported product launches, brand positioning, and community growth for fintech brand (+25% follower growth, +40% engagement rate).',
-        '<strong>Messaging & Campaigns:</strong> Translated complex product features into clear, benefit-focused messaging, achieving <strong>+15% CTR</strong> on product marketing links.',
-        '<strong>Marketing Campaigns:</strong> Created compelling content campaigns and launched educational webinar programs, simplifying complex financial concepts and <strong>boosting lead generation by 20%</strong>.'
+        'Develop and deliver individualized learning material in digital marketing and analytics, adapting instruction to different learning styles.'
       ]
     },
     {
       company: 'Bidygo',
       role: 'Strategic Social Media & Product Marketing Manager',
-      location: 'Los Angeles, California, US. Remote',
-      date: 'Sep 2023 – Nov 2024',
+      location: 'Remote',
+      date: 'Sep 2023–Nov 2024',
       bullets: [
-        '<strong>Social Media Strategy:</strong> Grew social engagement by <strong>50%</strong> across Instagram and LinkedIn by aligning social media efforts with product launches and business objectives.',
-        '<strong>Content & Influencer Campaigns:</strong> Delivered consistent, high-impact campaign content and influencer marketing partnerships, resulting in a <strong>20% increase in user adoption</strong>.',
-        '<strong>Cross-Functional Collaboration:</strong> Partnered with product and design teams to shape product roadmaps, conduct market research, and execute GTM strategies based on customer insights.'
+        'Worked on product adoption, digital user engagement, content strategy, and analysis of audience response.'
       ]
     },
     {
-      company: 'ChiyakoTravel',
-      role: 'Product Marketing Manager',
-      location: 'Iran. Hybrid',
-      date: 'Sep 2017 – Nov 2022',
+      company: 'Axioma Digital Marketing Agency / AMarkets',
+      role: 'Social Media Marketing Manager',
+      location: 'Yerevan, Armenia',
+      date: 'Dec 2022–Sep 2023',
       bullets: [
-        '<strong>Product Development:</strong> Designed, developed, and launched <strong>8–10 custom tour packages</strong> (cultural, adventure, corporate), driving <strong>+30% annual revenue growth</strong>.',
-        '<strong>Customer-Centric Improvements:</strong> Reviewed customer feedback and implemented a tailor-made travel request system, achieving a <strong>4.7/5 satisfaction rating</strong>.'
+        'Worked with digital audience behavior, engagement analytics, content performance, and communication of complex financial information.'
+      ]
+    },
+    {
+      company: 'Chiyakotravel',
+      role: 'Product Marketing Manager',
+      location: 'Iran',
+      date: 'Sep 2017–Nov 2022',
+      bullets: [
+        'Worked on digital products, customer experience, user behavior, and product development; launched approximately 8–10 travel products annually.'
       ]
     }
   ];
 
   readonly education: Education[] = [
     {
-      institution: 'FOOLAD Institute of Technology',
+      institution: 'Foolad Institute of Technology',
       location: 'Fooladshahr, Isfahan Province, Iran',
       degree: 'Master of Science',
-      field: 'Information Technology',
-      date: '02/2017'
+      field: 'Information Technology — Management Information Systems',
+      date: '2017',
+      thesisTitle: 'An Improved Model for Increasing User Loyalty in Business-to-Business Commercial Websites',
+      thesisMeta: 'Supervisor: Dr. Naser Nematbakhsh | Advisor: Dr. Bahram Amini',
+      details: [
+        'Developed an empirical model of e-loyalty integrating website, service, information and communication quality with perceived value, satisfaction, organizational image, and loyalty.',
+        'Designed and administered a questionnaire, assessed construct reliability, collected 150 responses, and evaluated the proposed relationships statistically.'
+      ]
     }
   ];
 
   readonly languages: Language[] = [
-    { name: 'Persian', proficiency: 'Native proficiency' },
+    { name: 'Persian', proficiency: 'Native' },
     { name: 'English', proficiency: 'Full professional proficiency' },
-    { name: 'French', proficiency: 'Limited working proficiency' }
-  ];
-
-  readonly achievementBullets: string[] = [
-    '<strong>Preply Digital Marketing Tutoring:</strong> Conducted high-impact masterclasses and taught advanced digital marketing, SEO, and social media strategy to international professionals, designing custom curricula that helped students improve their businesses\' online presence.',
-    '<strong>Salesforce Partner GTM Strategy:</strong> Formulated a comprehensive go-to-market plan for Ai11 Consulting GmbH, developing targeted LinkedIn campaigns to position the agency as a trusted B2B Salesforce partner and achieve reseller excellence.',
-    '<strong>Tour and Travel Packages:</strong> Designed and launched a portfolio of 8–10 custom tour packages (cultural, adventure, corporate) at ChiyakoTravel, driving a <strong>+30% annual revenue growth</strong> and a <strong>4.7/5 customer satisfaction rating</strong>.'
+    { name: 'French', proficiency: 'Limited working proficiency' },
+    { name: 'Swedish', proficiency: 'Conversational' }
   ];
 }
