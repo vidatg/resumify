@@ -1,5 +1,12 @@
-<div data-testid="resume-experience" class="mb-2.5">
-  <!-- Company | Role | Location & Date inline with background highlight banner -->
+<div *ngIf="plain" data-testid="resume-experience" class="mb-2">
+  <p data-testid="resume-experience.role" class="text-xs text-slate-800 leading-snug">{{ experience.role }}</p>
+  <p data-testid="resume-experience.meta" class="text-[10.5px] text-slate-500 leading-snug">
+    {{ experience.company }}. {{ experience.location }} · {{ experience.date }}
+  </p>
+  <p *ngFor="let bullet of experience.bullets" data-testid="resume-experience.bullet" class="text-xs text-slate-700 leading-snug mt-0.5" [innerHTML]="bullet"></p>
+</div>
+
+<div *ngIf="!plain" data-testid="resume-experience" class="mb-2">
   <div class="text-xs flex justify-between items-baseline flex-wrap gap-x-2 bg-slate-100/70 border-l-2 border-primary px-2 py-1 rounded-r">
     <div>
       <span data-testid="resume-experience.company" class="font-bold text-primary">{{ experience.company }}</span>
@@ -7,11 +14,10 @@
       <span data-testid="resume-experience.role" class="text-slate-700 font-semibold">{{ experience.role }}</span>
     </div>
     <div data-testid="resume-experience.meta" class="text-[10.5px] text-slate-500">
-      {{ experience.location }}<ng-container *ngIf="experience.date"> &middot; {{ experience.date }}</ng-container>
+      <ng-container *ngIf="experience.location">{{ experience.location }}</ng-container><ng-container *ngIf="experience.location && experience.date"> &middot; </ng-container><ng-container *ngIf="experience.date">{{ experience.date }}</ng-container>
     </div>
   </div>
 
-  <!-- Bullet Points (innerHTML to support <strong> tags for bold metrics) -->
   <ul class="list-disc list-outside ml-4 mt-1 text-xs text-slate-700 space-y-0.5">
     <li *ngFor="let bullet of experience.bullets" data-testid="resume-experience.bullet" class="leading-snug" [innerHTML]="bullet"></li>
   </ul>

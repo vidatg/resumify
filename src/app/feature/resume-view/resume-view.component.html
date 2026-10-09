@@ -3,49 +3,42 @@
   <app-resume-header-ui [personalInfo]="personalInfo" />
 
   <app-resume-section-ui title="Research Profile">
-    <p data-testid="resume.summary" class="text-xs text-slate-700 leading-snug text-justify">{{ introText }}</p>
+    <p data-testid="resume.summary" class="text-xs text-slate-700 leading-snug text-justify" [innerHTML]="introText"></p>
   </app-resume-section-ui>
 
   <app-resume-section-ui title="Research Interests">
-    <p data-testid="resume.skills" class="text-xs text-slate-600 leading-relaxed">{{ skillsList.join(' · ') }}</p>
+    <p data-testid="resume.skills" class="text-xs text-slate-600 leading-relaxed">{{ skillsList.join(' • ') }}</p>
   </app-resume-section-ui>
 
   <app-resume-section-ui title="Education">
-    <div *ngFor="let edu of education" data-testid="resume.education">
-      <div class="text-xs flex justify-between items-baseline flex-wrap gap-x-2">
-        <div>
-          <span class="font-bold text-primary">{{ edu.degree }} in {{ edu.field }}</span>
-        </div>
-        <div class="text-[10.5px] text-slate-500">
-          {{ edu.date }}
-        </div>
-      </div>
-      <p class="text-xs text-slate-700 mt-0.5">
-        <span class="font-semibold">{{ edu.institution }}</span>
-        <span class="mx-1 text-slate-300">|</span>
-        <span>{{ edu.location }}</span>
+    <div *ngFor="let edu of education" data-testid="resume.education" class="mb-2 last:mb-0">
+      <p class="text-xs font-bold text-primary leading-snug">{{ edu.degree }}</p>
+      <p class="text-[11px] text-slate-600 leading-snug">{{ edu.institution }}, {{ edu.location }} | {{ edu.date }}</p>
+      <p *ngFor="let item of edu.highlights" class="text-xs text-slate-700 leading-snug mt-1">
+        <span class="font-semibold text-primary">{{ item.label }}:</span>
+        <span [innerHTML]="' ' + item.html"></span>
       </p>
-      <p *ngIf="edu.thesisTitle" class="text-xs text-slate-700 mt-1.5 leading-snug">
-        <span class="font-semibold text-primary">Master's Thesis:</span>
-        <em> {{ edu.thesisTitle }}</em>
-      </p>
-      <p *ngIf="edu.thesisMeta" class="text-[10.5px] text-slate-500 mt-0.5">{{ edu.thesisMeta }}</p>
-      <ul *ngIf="edu.details?.length" class="list-disc list-outside ml-4 mt-1 text-xs text-slate-700 space-y-0.5">
-        <li *ngFor="let detail of edu.details" class="leading-snug">{{ detail }}</li>
-      </ul>
     </div>
   </app-resume-section-ui>
 
-  <app-resume-section-ui title="Publication & Conference Presentation">
-    <p data-testid="resume.publication" class="text-xs text-slate-700 leading-snug">
-      <span class="font-semibold">{{ publication.citation }}</span>
-      <em> {{ publication.title }}</em>
-      {{ publication.details }}
-    </p>
+  <app-resume-section-ui title="Research Projects">
+    <div *ngFor="let project of researchProjects" data-testid="resume.project">
+      <p class="text-xs leading-snug">
+        <a [href]="project.href" target="_blank" rel="noopener" class="font-semibold text-accent underline underline-offset-2">{{ project.title }}<ng-container *ngTemplateOutlet="externalIcon" /></a>
+      </p>
+      <p class="text-xs text-slate-700 leading-snug mt-0.5 text-justify" [innerHTML]="project.description"></p>
+    </div>
   </app-resume-section-ui>
 
-  <app-resume-section-ui title="Research Experience">
-    <app-resume-experience-ui *ngFor="let exp of researchExperience" [experience]="exp" />
+  <app-resume-section-ui title="Teaching Experience">
+    <div *ngFor="let item of teachingExperience" data-testid="resume.teaching" class="mb-1.5 last:mb-0">
+      <p class="text-xs font-semibold leading-snug">
+        <a *ngIf="item.href" [href]="item.href" target="_blank" rel="noopener" class="text-accent underline underline-offset-2">{{ item.title }}<ng-container *ngTemplateOutlet="externalIcon" /></a>
+        <span *ngIf="!item.href" class="text-primary">{{ item.title }}</span>
+      </p>
+      <p *ngIf="item.meta" class="text-[10.5px] text-slate-500 leading-snug">{{ item.meta }}</p>
+      <p class="text-xs text-slate-700 leading-snug">{{ item.description }}</p>
+    </div>
   </app-resume-section-ui>
 
   <div class="flex-1"></div>
@@ -54,11 +47,22 @@
 
 <!-- PAGE 2 -->
 <div class="resume-page-compact">
-  <app-resume-section-ui title="Selected Professional Experience">
-    <app-resume-experience-ui *ngFor="let exp of workExperiences" [experience]="exp" />
+  <app-resume-section-ui title="Research Experience">
+    <app-resume-experience-ui *ngFor="let exp of researchExperience" [experience]="exp" />
   </app-resume-section-ui>
 
-  <app-resume-section-ui title="Research & Analytical Skills">
+  <app-resume-section-ui title="Publication & Conference Presentation">
+    <p data-testid="resume.publication" class="text-xs text-slate-700 leading-snug">
+      <span class="font-semibold text-primary">{{ publication.title }}</span>
+    </p>
+    <p class="text-xs text-slate-600 leading-snug">{{ publication.details }}</p>
+  </app-resume-section-ui>
+
+  <app-resume-section-ui title="Technical & Industry Experience">
+    <app-resume-experience-ui *ngFor="let exp of workExperiences" [experience]="exp" [plain]="true" />
+  </app-resume-section-ui>
+
+  <app-resume-section-ui title="Technical Skills">
     <div data-testid="resume.tools" class="text-xs text-slate-600 space-y-0.5">
       <div *ngFor="let tool of toolsList">
         <span class="font-semibold text-primary">{{ tool.key }}:</span> {{ tool.values }}
@@ -66,14 +70,29 @@
     </div>
   </app-resume-section-ui>
 
-  <app-resume-section-ui title="Languages">
-    <div data-testid="resume.languages" class="text-xs text-slate-600 space-y-0.5">
-      <div *ngFor="let lang of languages">
-        <span class="font-semibold text-primary">{{ lang.name }}:</span> {{ lang.proficiency }}
-      </div>
+  <app-resume-section-ui title="Selected Courses & Certifications">
+    <div data-testid="resume.courses" class="text-xs text-slate-700 space-y-0.5">
+      <p *ngFor="let course of courses" class="leading-snug">
+        <a *ngIf="course.href" [href]="course.href" target="_blank" rel="noopener" class="text-accent underline underline-offset-2">{{ course.title }}<ng-container *ngTemplateOutlet="externalIcon" /></a><span *ngIf="!course.href">{{ course.title }}</span><span *ngIf="course.detail">, {{ course.detail }}</span>
+      </p>
     </div>
+  </app-resume-section-ui>
+
+  <app-resume-section-ui title="Languages">
+    <p data-testid="resume.languages" class="text-xs text-slate-600 leading-relaxed">
+      <ng-container *ngFor="let lang of languages; let last = last">
+        <span class="font-semibold text-primary">{{ lang.name }}</span> ({{ lang.proficiency }})<span *ngIf="!last"> · </span>
+      </ng-container>
+    </p>
   </app-resume-section-ui>
 
   <div class="flex-1"></div>
   <app-shared-page-footer-ui [pageConfig]="getPageConfig(2)" />
 </div>
+
+<ng-template #externalIcon>
+  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" fill="currentColor" viewBox="0 0 16 16" class="inline-block ml-0.5 align-[-1px]" aria-hidden="true">
+    <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
+    <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
+  </svg>
+</ng-template>

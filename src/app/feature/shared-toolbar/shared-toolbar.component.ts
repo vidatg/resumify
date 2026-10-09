@@ -15,4 +15,18 @@ export class SharedToolbarComponent {
   printDocument(): void {
     this.pdfService.printDocument();
   }
+
+  get documentLabel(): string {
+    const url = this.router.url;
+    if (url.includes('statement')) return 'Doctoral Statement';
+    if (url.includes('resume')) return 'Academic CV';
+    return '12 Page Visual Portfolio';
+  }
+
+  get printLabel(): string {
+    const url = this.router.url;
+    if (url.includes('statement')) return 'Print Statement';
+    if (url.includes('resume')) return 'Print CV';
+    return 'Print Portfolio';
+  }
 }

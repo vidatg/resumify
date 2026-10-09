@@ -11,4 +11,6 @@ import { WorkExperience } from '../../core/models/resume.models';
 })
 export class ResumeExperienceUiComponent {
   @Input({ required: true }) experience!: WorkExperience;
+  /** Plain academic entry: role first, no bold, no highlight bar */
+  @Input() plain = false;
 }

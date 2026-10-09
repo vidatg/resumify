@@ -15,4 +15,12 @@ export class ResumeHeaderUiComponent {
   isExternal(href: string): boolean {
     return href.startsWith('http://') || href.startsWith('https://');
   }
+
+  get linkContacts() {
+    return this.personalInfo.contacts.filter((contact) => contact.row !== 'direct');
+  }
+
+  get directContacts() {
+    return this.personalInfo.contacts.filter((contact) => contact.row === 'direct');
+  }
 }

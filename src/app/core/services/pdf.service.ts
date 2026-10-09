@@ -11,10 +11,12 @@ export class PdfService {
    * generated PDF filename matches the current view.
    */
   printDocument(): void {
-    const isResume = this.router.url.includes('resume');
-    document.title = isResume
-      ? 'Zahra Taghiyar - Resume'
-      : 'Vida Taghiyar - Portfolio';
+    const url = this.router.url;
+    document.title = url.includes('statement')
+      ? 'Zahra Taghiyar - Doctoral Application'
+      : url.includes('resume')
+        ? 'Zahra Taghiyar - CV'
+        : 'Vida Taghiyar - Portfolio';
     window.print();
   }
 }

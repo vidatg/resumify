@@ -14,11 +14,14 @@ export interface ContactItem {
   value: string;
   href?: string;
   icon?: ContactIcon;
+  /** 'links' sits on the profile line; 'direct' sits on the contact line */
+  row?: 'links' | 'direct';
 }
 
 export interface PersonalInfo {
   name: string;
   jobTitle: string;
+  subtitle?: string;
   heroImage: string;
   contacts: ContactItem[];
 }
@@ -77,6 +80,12 @@ export interface WorkExperience {
   bullets: string[];
 }
 
+/** Labeled paragraph under a degree, same shape for every qualification */
+export interface EducationHighlight {
+  label: string;
+  html: string;
+}
+
 /** Education entry */
 export interface Education {
   institution: string;
@@ -87,6 +96,26 @@ export interface Education {
   thesisTitle?: string;
   thesisMeta?: string;
   details?: string[];
+  highlights?: EducationHighlight[];
+}
+
+export interface ResearchProject {
+  title: string;
+  href: string;
+  description: string;
+}
+
+export interface TeachingEntry {
+  title: string;
+  meta?: string;
+  description: string;
+  href?: string;
+}
+
+export interface CourseItem {
+  title: string;
+  href?: string;
+  detail?: string;
 }
 
 /** Conference paper or poster */
@@ -100,4 +129,29 @@ export interface Publication {
 export interface Language {
   name: string;
   proficiency: string;
+}
+
+/** A labeled block of the doctoral statement */
+export interface StatementSection {
+  id: string;
+  heading: string;
+  paragraphs: string[];
+  /** Research question set apart from the prose */
+  quote?: string;
+}
+
+export interface StatementMaterial {
+  label: string;
+  title: string;
+  detail: string;
+  href?: string;
+  /** When set, the title is the link. Otherwise the URL is shown after the title. */
+  linkTitle?: boolean;
+}
+
+export interface StatementReference {
+  name: string;
+  affiliation: string;
+  email: string;
+  relationship: string;
 }

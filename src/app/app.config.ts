@@ -7,6 +7,10 @@ const routes: Routes = [
     loadComponent: () => import('./feature/resume-view/resume-view.component').then(m => m.ResumeViewComponent)
   },
   {
+    path: 'statement',
+    loadComponent: () => import('./feature/statement-view/statement-view.component').then(m => m.StatementViewComponent)
+  },
+  {
     path: 'portfolio',
     loadComponent: () => import('./feature/portfolio-view/portfolio-view.component').then(m => m.PortfolioViewComponent)
   },

@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { NgFor, NgIf } from '@angular/common';
+import { NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
 import { ResumeDataService } from '../../core/services/resume-data.service';
 import { ResumeHeaderUiComponent } from '../../ui/resume-header-ui/resume-header-ui.component';
 import { ResumeExperienceUiComponent } from '../../ui/resume-experience-ui/resume-experience-ui.component';
@@ -13,6 +13,7 @@ import { ResumePageConfig } from '../../core/models/resume.models';
   imports: [
     NgFor,
     NgIf,
+    NgTemplateOutlet,
     ResumeHeaderUiComponent,
     ResumeExperienceUiComponent,
     ResumeSectionUiComponent,
@@ -26,11 +27,14 @@ export class ResumeViewComponent {
   readonly personalInfo = this.data.personalInfo;
   readonly introText = this.data.introText;
   readonly skillsList = this.data.skillsList;
-  readonly toolsList = this.data.toolsList;
-  readonly publication = this.data.publication;
-  readonly researchExperience = this.data.researchExperience;
-  readonly workExperiences = this.data.workExperiences;
   readonly education = this.data.education;
+  readonly researchProjects = this.data.researchProjects;
+  readonly teachingExperience = this.data.teachingExperience;
+  readonly researchExperience = this.data.researchExperience;
+  readonly publication = this.data.publication;
+  readonly workExperiences = this.data.workExperiences;
+  readonly toolsList = this.data.toolsList;
+  readonly courses = this.data.courses;
   readonly languages = this.data.languages;
 
   getPageConfig(page: number): ResumePageConfig {

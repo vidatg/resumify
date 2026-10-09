@@ -50,6 +50,20 @@ html, body {
     display: flex;
     flex-direction: column;
   }
+  .resume-page-letter {
+    width: 210mm;
+    height: 297mm;
+    background-color: #ffffff;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.5rem;
+    padding: 16mm 18mm 12mm;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    hyphens: none;
+  }
 }
 
 @media print {
@@ -107,6 +121,27 @@ html, body {
     print-color-adjust: exact;
   }
   .resume-page-compact:last-child {
+    page-break-after: auto;
+  }
+  .resume-page-letter {
+    width: 210mm;
+    height: 297mm;
+    margin: 0 !important;
+    padding: 16mm 18mm 12mm;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    page-break-after: always;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    hyphens: none;
+  }
+  .resume-page-letter:last-child {
     page-break-after: auto;
   }
 }
