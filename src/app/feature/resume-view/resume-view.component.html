@@ -16,7 +16,7 @@
       <p class="text-[11px] text-slate-600 leading-snug">{{ edu.institution }}, {{ edu.location }} | {{ edu.date }}</p>
       <p *ngFor="let item of edu.highlights" class="text-xs text-slate-700 leading-snug mt-1">
         <span class="font-semibold text-primary">{{ item.label }}:</span>
-        <span [innerHTML]="' ' + item.html"></span>
+        <a *ngIf="item.href" [href]="item.href" target="_blank" rel="noopener" class="font-semibold text-accent underline underline-offset-2"> {{ item.linkTitle }}<ng-container *ngTemplateOutlet="externalIcon" /></a><span [innerHTML]="item.href ? item.html : ' ' + item.html"></span>
       </p>
     </div>
   </app-resume-section-ui>
@@ -52,10 +52,14 @@
   </app-resume-section-ui>
 
   <app-resume-section-ui title="Publication & Conference Presentation">
-    <p data-testid="resume.publication" class="text-xs text-slate-700 leading-snug">
-      <span class="font-semibold text-primary">{{ publication.title }}</span>
+    <p data-testid="resume.publication" class="text-xs leading-snug">
+      <a *ngIf="publication.href" [href]="publication.href" target="_blank" rel="noopener" class="font-semibold text-accent underline underline-offset-2">{{ publication.title }}<ng-container *ngTemplateOutlet="externalIcon" /></a>
+      <span *ngIf="!publication.href" class="font-semibold text-primary">{{ publication.title }}</span>
     </p>
-    <p class="text-xs text-slate-600 leading-snug">{{ publication.details }}</p>
+    <p class="text-xs text-slate-600 leading-snug">
+      {{ publication.details }}
+      <a *ngIf="publication.certificateHref" [href]="publication.certificateHref" target="_blank" rel="noopener" class="text-accent underline underline-offset-2">Certificate<ng-container *ngTemplateOutlet="externalIcon" /></a>
+    </p>
   </app-resume-section-ui>
 
   <app-resume-section-ui title="Technical & Industry Experience">

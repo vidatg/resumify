@@ -17,7 +17,7 @@ export class ResumeDataService {
   readonly personalInfo: PersonalInfo = {
     name: 'Zahra Taghiyar',
     jobTitle: 'PhD Applicant',
-    subtitle: 'Graduated with a Master of Science (M.Sc.) in Information Technology, with a specialization in Management Information Systems (MIS).',
+    subtitle: 'Graduated with a Master of Science in Information Technology, specialized in Management Information Systems (MIS).',
     heroImage: 'assets/th_vida.png',
     contacts: [
       { id: 'game-insights', label: 'Game Insights Project', value: 'Game Insights Project', href: 'https://vidatg.github.io/game-insights/', icon: 'website', row: 'links' },
@@ -47,7 +47,9 @@ export class ResumeDataService {
       highlights: [
         {
           label: "Master's Thesis",
-          html: '<strong>An Improved Model for Increasing User Loyalty in Business-to-Business Commercial Websites.</strong> Developed an empirical model of e-loyalty integrating website, service, information and communication quality with perceived value, satisfaction, organizational image, and loyalty. Designed and administered a questionnaire, assessed construct reliability, collected 150 responses, and evaluated the proposed relationships statistically. Supervisor: Dr. Naser Nematbakhsh. Advisor: Dr. Bahram Amini.'
+          linkTitle: 'An Improved Model for Increasing User Loyalty in Business-to-Business Commercial Websites.',
+          href: 'https://drive.google.com/drive/folders/1rk6Uxf5VKlF7L7EYZXLVgb8rnZG_YwQ0?usp=sharing',
+          html: ' Developed an empirical model of e-loyalty integrating website, service, information and communication quality with perceived value, satisfaction, organizational image, and loyalty. Designed and administered a questionnaire, assessed construct reliability, collected 150 responses, and evaluated the proposed relationships statistically. Supervisor: Dr. Naser Nematbakhsh. Advisor: Dr. Bahram Amini.'
         }
       ]
     },
@@ -80,8 +82,8 @@ export class ResumeDataService {
 
   readonly teachingExperience: TeachingEntry[] = [
     {
-      title: "Teaching Assistant, Bachelor's & Master's Level",
-      description: 'Supported university-level teaching during both B.Sc. and M.Sc. studies, assisting students with course material, assignments, and academic learning activities.'
+      title: "Teaching Assistant, Master's and Bachelor's Programmes",
+      description: "Master's courses: Software Development Management; Decision-Making Systems. Bachelor's courses: Research Method; Information Technology Systems and Electronic Commerce (E-commerce)."
     },
     {
       title: 'Digital Marketing Tutor | Preply',
@@ -113,6 +115,8 @@ export class ResumeDataService {
   readonly publication: Publication = {
     citation: '',
     title: 'A Review of E-loyalty Models in Business-to-Business E-commerce Context',
+    href: 'https://drive.google.com/file/d/1IdLshnpsXBZjwUzmU-fG_ECJZAWh5LJA/view?usp=sharing',
+    certificateHref: 'https://drive.google.com/file/d/13-QCYhoX1Tl4zQ6zVQe5EcYdLfUoHQw1/view?usp=sharing',
     details: 'Poster Presentation, 11th International Conference on e-Commerce in Developing Countries (ECDC 2017), Isfahan, IR, 14–15 April 2017.'
   };
 

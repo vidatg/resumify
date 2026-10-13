@@ -44,7 +44,7 @@ export class StatementDataService {
       label: 'Master\'s Thesis',
       title: 'An Improved Model for Increasing User Loyalty in Business-to-Business Commercial Websites',
       detail: '',
-      href: 'https://drive.google.com/file/d/1jrE5zx9wregn9z6V4Nhw4Zmsv39xpGPg/view',
+      href: 'https://drive.google.com/drive/folders/1rk6Uxf5VKlF7L7EYZXLVgb8rnZG_YwQ0?usp=sharing',
       linkTitle: true
     },
     {

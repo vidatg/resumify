@@ -84,6 +84,8 @@ export interface WorkExperience {
 export interface EducationHighlight {
   label: string;
   html: string;
+  linkTitle?: string;
+  href?: string;
 }
 
 /** Education entry */
@@ -123,6 +125,8 @@ export interface Publication {
   citation: string;
   title: string;
   details: string;
+  href?: string;
+  certificateHref?: string;
 }
 
 /** Language proficiency */

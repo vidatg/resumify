@@ -9,9 +9,9 @@
     <div class="flex-1">
       <h1 data-testid="resume-header.name" class="text-2xl font-extrabold text-primary leading-tight">{{ personalInfo.name }}</h1>
       <p data-testid="resume-header.job-title" class="text-sm font-semibold text-primary mt-0.5">{{ personalInfo.jobTitle }}</p>
-      <p *ngIf="personalInfo.subtitle" data-testid="resume-header.subtitle" class="text-[11px] text-slate-600 leading-snug mt-0.5">{{ personalInfo.subtitle }}</p>
     </div>
   </div>
+  <p *ngIf="personalInfo.subtitle" data-testid="resume-header.subtitle" class="text-[11px] text-slate-600 whitespace-nowrap mt-1">{{ personalInfo.subtitle }}</p>
 
   <!-- Divider -->
   <div class="border-t border-slate-300 my-2"></div>
